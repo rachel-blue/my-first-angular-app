@@ -2,8 +2,12 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   // SELECTING BY ELEMENT
-  selector: 'app-servers',
   // most often used for components
+
+  selector: 'app-servers',
+
+  templateUrl: './servers.component.html',
+  styleUrls: ['./servers.component.css']
 
   // SELECTING BY ATTRIBUTE
   // selector: '[app-servers]',
@@ -17,14 +21,12 @@ import { Component, OnInit } from '@angular/core';
   //   <app-server></app-server>
   //   <app-server></app-server>
   // `,
-
-  templateUrl: './servers.component.html',
-  styleUrls: ['./servers.component.css']
 })
 export class ServersComponent implements OnInit {
   allowNewServer = false;
   serverCreationStatus = 'No server was created!';
   serverName = 'TestServer';
+  serverCreated = false;
 
   constructor() {
     setTimeout(() => {
@@ -36,6 +38,7 @@ export class ServersComponent implements OnInit {
   }
 
   onCreateServer(): void {
+    this.serverCreated = true;
     this.serverCreationStatus = 'Server was created! Name is: ' + this.serverName;
   }
 
