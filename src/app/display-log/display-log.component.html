@@ -1,0 +1,17 @@
+<button
+  class="btn btn-primary"
+  (click)="updateDisplayStatus()"
+>
+  {{ displayStatus }}
+</button>
+
+<p [hidden]="!showPassword">Secret password = tuna</p>
+
+<p>log of button clicks</p>
+<div
+  *ngFor="let log of clickLog"
+  [ngStyle]="{ backgroundColor: log >= 5 ? 'blue' : 'transparent' }"
+  [ngClass]="{ 'white-text': log >= 5 }"
+>
+  {{ log }}
+</div>
